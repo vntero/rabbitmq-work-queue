@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var amqp: any = require('amqplib/callback_api');
 
 amqp.connect('amqp://localhost', function(error0: any, connection: any) {
@@ -16,7 +14,7 @@ amqp.connect('amqp://localhost', function(error0: any, connection: any) {
         channel.assertQueue(queue, {
             durable: true
         });
-        channel.sendTOQueue(queue, Buffer.from(msg), {
+        channel.sendToQueue(queue, Buffer.from(msg), {
             persistent: true
         });
         console.log(" [x] Sent '%s'", msg);
